@@ -24,3 +24,69 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.postCard::before {
+  /* background: var(--background);
+  border-color: var(--foreground); */
+  content: "";
+  position: absolute;
+  /* top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; */
+  inset: 0;
+  border-radius: inherit;
+  /* box-shadow: 0 0 0 1px var(--foreground); */
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  /* backdrop-filter: blur(10px); */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.postCard:hover::before {
+  opacity: 1;
+}
+
+.post-glass {
+  /* background: var(--background);
+  border-color: var(--foreground); */
+  position: relative;
+  /* box-shadow: 0 0 0 1px var(--foreground); */
+  overflow: hidden;
+}
+
+.post-glass::before {
+  /* background: var(--background);
+  border-color: var(--foreground); */
+  content: "";
+  position: absolute;
+  /* top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; */
+  inset: 0;
+  border-radius: inherit;
+  /* box-shadow: 0 0 0 1px var(--foreground); */
+  background: linear-gradient(
+    130deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  /* backdrop-filter: blur(10px); */
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.post-glass:hover::before {
+  opacity: 1;
+}

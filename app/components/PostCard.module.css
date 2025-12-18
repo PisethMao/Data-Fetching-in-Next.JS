@@ -1,0 +1,80 @@
+.postCard {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* background-color: #fff; */
+  /* Smooth animation */
+  transition: box-shadow 0.35s ease, transform 0.35s ease, background 0.35s ease;
+  /* width: 300px; */
+  width: 100%;
+  max-width: 520px;
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.12);
+  background-origin: blur(14px);
+  /* -webkit-backdrop-filter: blur(14px); */
+  /* Base shadow */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: #111;
+  cursor: pointer;
+}
+/* Light reflection layer */
+.postCard::before {
+  content: "";
+  position: absolute;
+  /* top: 0;
+  left: 0; */
+  inset: 0;
+  /* width: 100%;
+  height: 100%; */
+  /* border-radius: 18px; */
+  border-radius: inherit;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  /* transition: box-shadow 0.35s ease, transform 0.35s ease; */
+}
+/* Hover effect */
+.postCard:hover {
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transform: translateY(-10px), scale(1.015);
+  /* background: rgba(255, 255, 255, 0.2); */
+}
+.postCard:hover::before {
+  opacity: 1;
+}
+/* Title */
+.postTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  /* color: #222; */
+  letter-spacing: 0.5px;
+}
+/* Body excerpt */
+.postExcerpt {
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.75);
+  margin-bottom: 16px;
+}
+/* Meta info */
+.postCard p:last-child {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+}
+/* .post-card:hover .post-title {
+  color: #000;
+}
+.post-card:hover .post-excerpt {
+  color: #222;
+} */
