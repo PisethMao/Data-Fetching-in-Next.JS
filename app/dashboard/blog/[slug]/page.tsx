@@ -1,5 +1,8 @@
 async function fetchDetailsPost(id: string) {
   const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+  if (!BASE_URL) {
+    throw new Error("API URL is not defined");
+  }
   const data = await fetch(`${BASE_URL}posts/${id}`);
   const post = await data.json();
   return post;
