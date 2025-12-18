@@ -2,10 +2,15 @@ import Link from "next/link";
 import { PostResponse } from "../lib/posts";
 import PostCard from "../components/PostCard";
 
+export const dynamic = "force-dynamic";
+
 export default async function Dashboard() {
   // Fetch data or perform other async operations here if needed
-  const BASE_URL = process.env.NEXT_PUBLIC_API_URL + "posts";
-  const res = await fetch(BASE_URL);
+  const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  if (!API_URL) {
+    throw new Error("NEXT_PUBLIC_API_URL is not defined");
+  }
+  const res = await fetch(`${API_URL}posts`);
   const posts: PostResponse[] = await res.json();
   // console.log(posts);
   return (
