@@ -1,18 +1,18 @@
 import Link from "next/link";
-import { PostResponse } from "../lib/posts";
-import PostCard from "../components/PostCard";
-
-export const dynamic = "force-dynamic";
+import { PostResponse } from "../../lib/types/posts";
+import loadPost from "@/lib/data/fixedPost";
+import Cards from "@/components/Cards";
 
 export default async function Dashboard() {
   // Fetch data or perform other async operations here if needed
-  const API_URL = process.env.NEXT_PUBLIC_API_URL;
-  if (!API_URL) {
-    throw new Error("NEXT_PUBLIC_API_URL is not defined");
-  }
-  const res = await fetch(`${API_URL}posts`);
-  const posts: PostResponse[] = await res.json();
+  // const API_URL = process.env.NEXT_PUBLIC_API_URL;
+  // if (!API_URL) {
+  //   throw new Error("NEXT_PUBLIC_API_URL is not defined");
+  // }
+  // const res = await fetch(`${API_URL}posts`);
+  // const posts: PostResponse[] = await res.json();
   // console.log(posts);
+  const posts: PostResponse[] = await loadPost();
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black px-6 py-10">
       {/* Page Header */}
@@ -51,7 +51,7 @@ export default async function Dashboard() {
           // </div>
           <div key={post.id}>
             <Link href={`dashboard/blog/${post.id}`} key={post.id}>
-              <PostCard
+              <Cards
                 key={post.id}
                 userId={post.userId}
                 id={post.id}

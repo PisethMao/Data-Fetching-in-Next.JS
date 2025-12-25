@@ -1,4 +1,4 @@
-import { PostResponse } from "../lib/posts";
+import { PostResponse } from "@/lib/types/posts";
 import styles from "./PostCard.module.css";
 
 export default function PostCard({
